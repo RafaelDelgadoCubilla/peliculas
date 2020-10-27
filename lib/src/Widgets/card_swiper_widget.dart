@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_swiper/flutter_swiper.dart';
+import 'package:peliculas/src/Models/pelicula_model.dart';
 
 class CardSwiper extends StatelessWidget {
 
-  final peliculas = List();
+  final peliculas = List<Pelicula>();
+  //final List<Pelicula> peliculas;
 
   CardSwiper({@required peliculas});
 
@@ -13,14 +15,19 @@ class CardSwiper extends StatelessWidget {
   Widget build(BuildContext context) {
     final _screensize = MediaQuery.of(context).size;
     return Container(
+      padding: EdgeInsets.only(top:10.0),
       child: Swiper(
         itemBuilder: (BuildContext context, int index) {
           return ClipRRect(
             borderRadius: BorderRadius.circular(20.0),
-            child: Image.network('https://image.tmdb.org/t/p/w600_and_h900_bestv2/j2rf9hrGjm8m1xdH5fy19AcOZ0F.jpg',
-              fit: BoxFit.fill,
+            child: FadeInImage(
+              placeholder: AssetImage('assets/img/no-image.jpg'), 
+              image: NetworkImage(
+                peliculas[index].getPosterImg()
+              ),
+              fit: BoxFit.cover
             ),
-          ); 
+          );
         },
         //autoplay: true,
         itemCount: peliculas.length,
