@@ -15,6 +15,16 @@ class HomePage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text('Películas en cines'),
+        centerTitle: false,
+        backgroundColor: Colors.indigoAccent,
+        actions: [
+          IconButton(
+            icon: Icon(Icons.search), 
+            onPressed: (){
+              //showSearch(context: null, delegate: null)
+            }
+          )
+        ],
       ),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.spaceAround,

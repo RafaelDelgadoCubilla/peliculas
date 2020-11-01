@@ -15,6 +15,8 @@ class Peliculas {
 }
 
 class Pelicula {
+  String uniqueId;
+
   double popularity;
   int voteCount;
   bool video;
@@ -70,5 +72,12 @@ class Pelicula {
       return 'https://www.freeiconspng.com/thumbs/no-image-icon/no-image-icon-6.png';
     }
     else return 'https://image.tmdb.org/t/p/w500/$posterPath';
+  }
+
+  getBackgroundImg() {
+    if (backdropPath == null) {
+      return 'https://www.freeiconspng.com/thumbs/no-image-icon/no-image-icon-6.png';
+    }
+    else return 'https://image.tmdb.org/t/p/w500/$backdropPath';
   }
 }
